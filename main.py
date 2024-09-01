@@ -10,7 +10,7 @@ def create_new_file(pdf_reader: PdfReader, pdf_writer: PdfWriter) -> None:
         pdf_writer.write(f)
 
 
-def add_pages_to_write_object(pdf_reader: PdfReader, pages_to_keep: list[int]):
+def add_pages_to_writer_object(pdf_reader: PdfReader, pages_to_keep: list[int]):
     new_pdf_writer = PdfWriter()
 
     for page_index in pages_to_keep:
@@ -27,7 +27,7 @@ def main(
     ],
 ) -> None:
     pdf_reader = PdfReader(pdf_path, "rb")
-    new_pdf_writer = add_pages_to_write_object(pdf_reader, pages_to_keep)
+    new_pdf_writer = add_pages_to_writer_object(pdf_reader, pages_to_keep)
     create_new_file(pdf_reader, new_pdf_writer)
 
 
